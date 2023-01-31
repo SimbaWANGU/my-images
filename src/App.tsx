@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { ReactElement } from 'react'
 
-const App = () => {
+const App = (): ReactElement => {
   return (
-    <div>App</div>
+    <div>
+      <h1 className="text-3xl font-bold underline">
+      Hello world!
+      </h1>
+    </div>
   )
 }
 
