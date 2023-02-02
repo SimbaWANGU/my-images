@@ -7,11 +7,9 @@
 :root {
   --font-base: 'Cormorant Upright', serif;
   --font-alt: 'Open Sans', sans-serif;
-  --color-golden: #dcca87;
-  --color-golden-dark_: #dab008;
+  --color-light-blue: #9298f7ea;
+  --color-dark-blue: #0411c9ea;
   --color-black: #030303;
-  --color-gray: #545454;
-  --color-crimson: #f5efdb;
   --color-grey: #aaa;
   --color-white: #fff;
 }
@@ -26,4 +24,27 @@
 a {
   color: unset;
   text-decoration: none;
+}
+
+nav {
+  font-family: var(--font-alt);
+  background-color: #2a344d;
+}
+
+.bg-weird-blue {
+  background-color: #2a344d;
+}
+
+.alt {
+  font-family: var(--font-alt);
+}
+
+.base {
+  font-family: var(--font-base);
+}
+
+svg {
+  margin: 0 auto auto;
+  width: 100%;
+  height: auto;
 }
