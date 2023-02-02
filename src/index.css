@@ -28,11 +28,13 @@ a {
 
 nav {
   font-family: var(--font-alt);
-  background-color: #2a344d;
+  background: rgb(42, 52, 77);
+  background: linear-gradient(90deg, rgba(42, 52, 77, 1) 0%, rgba(6, 12, 28, 1) 100%);
 }
 
 .bg-weird-blue {
-  background-color: #2a344d;
+  background: rgb(42, 52, 77);
+  background: linear-gradient(90deg, rgba(42, 52, 77, 1) 0%, rgba(6, 12, 28, 1) 100%);
 }
 
 .alt {

@@ -3,6 +3,10 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home/Home'
 
 const App = (): ReactElement => {
+  const styles = {
+    div: 'h-screen'
+  }
+
   return (
     <div className={styles.div}>
       <Navbar />
@@ -11,8 +15,5 @@ const App = (): ReactElement => {
   )
 }
 
-const styles = {
-  div: 'h-screen'
-}
 
 export default App
