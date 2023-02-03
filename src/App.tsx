@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react'
 import Navbar from './components/Navbar'
-import Home from './pages/Home/Home'
+import GenerateImage from './pages/Generate/GenerateImage'
 
 const App = (): ReactElement => {
   const styles = {
@@ -10,7 +10,7 @@ const App = (): ReactElement => {
   return (
     <div className={styles.div}>
       <Navbar />
-      <Home />
+      <GenerateImage />
     </div>
   )
 }
