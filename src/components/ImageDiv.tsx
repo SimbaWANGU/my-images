@@ -7,9 +7,6 @@ interface Image {
 }
 
 const ImageDiv: React.FC<Image> = ({ src, classes, div }) => {
-  const styles = {
-    
-  }
   return (
     <div className={div}>
       <img className={classes} src={src} alt='Generated Image' />
