@@ -13,7 +13,8 @@ const Generate = () => {
     formDiv: 'flex-size-1',
     form: 'glass flex flex-col',
     h3: 'text-center p-5 text-3xl font-semibold base',
-    input: 'p-2 m-auto my-5 rounded w-8/12 text-sm text-center bg-transparent border-b outline-none alt',
+    input: 'p-2 m-auto my-5 rounded w-8/12 text-sm text-center bg-transparent border-b outline-none focus:outline-white focus:border-none placeholder:italic alt',
+    inputSubmit: 'p-2 mx-auto my-5 rounded w-5/12 bg-violet-500 hover:bg-violet-600 duration-200 ease-in',
     result: 'flex-size-2',
     swiper: 'w-96',
     download: 'relative -top-8 -right-44 hover:scale-150 duration-1000 ease-in'
@@ -33,6 +34,11 @@ const Generate = () => {
             className={styles.input}
             type='number'
             placeholder='Number of images...'
+          />
+          <input 
+            className={styles.inputSubmit}
+            type='submit'
+            value='Generate'
           />
         </form>
       </div>
