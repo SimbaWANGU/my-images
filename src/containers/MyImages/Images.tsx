@@ -11,7 +11,7 @@ const Images = () => {
     div: 'bg-weird-blue px-14 text-white h-full w-full grid gap-4 grid-cols-3 grid-rows-2',
     swiper: 'h-48 w-48',
     classes: 'h-48 w-48 object-cover rounded-xl',
-    Imagediv: 'h-48 border rounded-xl'
+    Imagediv: 'h-48 w-48 border rounded-xl'
   }
   return (
     <div className={styles.div}>
