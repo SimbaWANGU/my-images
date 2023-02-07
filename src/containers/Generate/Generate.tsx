@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from 'react'
+import React, { FormEvent, ReactElement, useState } from 'react'
 import { useMutation, useQueryClient } from 'react-query'
 import { Swiper , SwiperSlide } from 'swiper/react'
 import { Autoplay, EffectCards } from 'swiper'
@@ -8,25 +8,33 @@ import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import ImageDiv from '../../components/ImageDiv'
 import { generateImage } from './../../api/Post'
 
-const Generate = () => {
+interface Image {
+  url: string
+}
+
+interface Images {
+  message: string
+  images: Image[]
+}
+
+const Generate = (): ReactElement => {
   const queryClient = useQueryClient()
-  const [images, setImages] = useState<object>()
+  let data: Images
+  const [images, setImages] = useState<Images>()
   const [prompt, setPrompt] = useState('')
   const [number, setNumber] = useState('')
 
   const { status, mutateAsync: generateImages} = useMutation(async (e: FormEvent): Promise<void> => {
     e.preventDefault()
-    const data = await generateImage(prompt, Number(number))
+    data = await generateImage(prompt, Number(number))
     setPrompt('')
     setNumber('')
     queryClient.invalidateQueries('images')
     queryClient.setQueryData('images', data)
   }, {
     onSuccess: () => {
-      const resData = queryClient.getQueryData('images')
-      if (typeof resData === 'object' && resData !== null) {
-        setImages(resData)
-      }
+      data = queryClient.getQueryData('images') as Images
+      setImages(data)
     },
     onError: () => {
       console.log('done')
@@ -95,8 +103,8 @@ const Generate = () => {
             <h2>Please wait while we generate the images</h2>
             :
               (typeof images === 'object') ?
-              images.images.map((image: any) => (
-                <SwiperSlide key={images.images.findIndex((item: any) => item === image)}>
+              images.images.map((image: Image) => (
+                <SwiperSlide key={images.images.findIndex((item) => item === image)}>
                   <ImageDiv src={image.url} classes={styles.classes} div={styles.Imagediv} />
                   <FileDownloadIcon className={styles.download} />
                 </SwiperSlide>
