@@ -1,5 +1,8 @@
 import React, { ReactElement } from 'react'
+import { Routes, Route } from 'react-router-dom';
 import TransformOutlinedIcon from '@mui/icons-material/TransformOutlined';
+import Home from '../pages/Home/Home';
+import GenerateImage from '../pages/Generate/GenerateImage';
 
 const Navbar = (): ReactElement => {
   const styles = {
@@ -12,19 +15,19 @@ const Navbar = (): ReactElement => {
   }
 
   return (
+    <>
     <div className={styles.div}>
       <nav className={styles.nav}>
         <span className={styles.span}>
-          <TransformOutlinedIcon />
-          {'  '}
-          Picture Perfect
+          <a href='/'>
+            <TransformOutlinedIcon />
+            {'  '}
+            Picture Perfect
+          </a>
         </span>
         <ul className={styles.ul}>
           <li className={styles.li}>
-            <a className={styles.button}>Test Run</a>
-          </li>
-          <li className={styles.li}>
-            <a className={styles.button}>Generate</a>
+            <a href='/generate' className={styles.button}>Generate</a>
           </li>
           <li className={styles.li}>
             <a className={styles.button}>My Images</a>
@@ -35,6 +38,12 @@ const Navbar = (): ReactElement => {
         </ul>
       </nav>
     </div>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/generate' element={<GenerateImage />} />
+        <Route path='/myimages' element={<></>} />
+      </Routes>
+    </>
   )
 }
 
