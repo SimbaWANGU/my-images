@@ -21,7 +21,7 @@ const Landing = (): ReactElement => {
         <p className={styles.p}>Ever needed a quick image but could not find the one you&apos;re looking for? Well, Picture Perfect is for you. Just type in the image description and wait as we whip up something for you. Mould the perfect image according to your desire.</p>
         <div className={styles.div4}>
           <a href='#tryout' className={styles.button1}>Slideshow</a>
-          <a className={styles.button2}>Generate Images</a>
+          <a href='/generate' className={styles.button2}>Generate Images</a>
         </div>
       </div>
       <div className={styles.div3}>
