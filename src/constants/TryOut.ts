@@ -13,29 +13,36 @@ const dummyText = [
   'volcanic eruptions',
   'rock formation',
   'hackers at work',
+  'weeds',
+  'game of thrones',
+  'white walkers',
+  'cheese',
+  'fries',
+  'popcorns',
+  'chocolate',
+  'ice cream',
+  'laptops',
+  'cup of coffee',
+  'bread',
+  'soccer',
+  'football',
+  'basketball',
+  'curtains',
+  'window designs',
+  'african wear',
+  'concentration of air',
+  'dust particles',
+  'diffusion',
+  'osmosis',
+  'cars',
+  'f1 racing cars',
+  'cars in mud',
+  'leaves',
+  'fences',
+  'colourful notebooks',
+  'futuristic technology design',
 ]
 
-const testRequest = [
-  {
-    prompt: dummyText[Math.floor(Math.random() * 11)],
-    number: 4
-  },
-  {
-    prompt: dummyText[Math.floor(Math.random() * 11)],
-    number: 6
-  },
-  {
-    prompt: dummyText[Math.floor(Math.random() * 11)],
-    number: 7
-  },
-  {
-    prompt: dummyText[Math.floor(Math.random() * 11)],
-    number: 3
-  },
-  {
-    prompt: dummyText[Math.floor(Math.random() * 11)],
-    number: 5
-  }
-]
+const testRequest = dummyText[Math.floor(Math.random() * dummyText.length)]
 
 export { testRequest }
