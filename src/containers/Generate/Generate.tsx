@@ -1,21 +1,14 @@
-import React, { FormEvent, ReactElement, useState } from 'react'
+import React, { FormEvent, ReactElement, useState, Suspense, lazy } from 'react'
 import { useMutation, useQueryClient } from 'react-query'
 import { Swiper , SwiperSlide } from 'swiper/react'
 import { Autoplay, EffectCards } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/effect-cards'
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
-import ImageDiv from '../../components/ImageDiv'
 import { generateImage } from './../../api/Post'
+import type { Image, Images } from '../../interfaces/Interface'
 
-interface Image {
-  url: string
-}
-
-interface Images {
-  message: string
-  images: Image[]
-}
+const ImageDiv = lazy(() => import('../../components/ImageDiv'))
 
 const Generate = (): ReactElement => {
   const queryClient = useQueryClient()
@@ -105,7 +98,9 @@ const Generate = (): ReactElement => {
               (typeof images === 'object') ?
               images.images.map((image: Image) => (
                 <SwiperSlide key={images.images.findIndex((item) => item === image)}>
-                  <ImageDiv src={image.url} classes={styles.classes} div={styles.Imagediv} />
+                  <Suspense fallback={<h1>Loading</h1>}>
+                    <ImageDiv src={image.url} classes={styles.classes} div={styles.Imagediv} />
+                  </Suspense>
                   <FileDownloadIcon className={styles.download} />
                 </SwiperSlide>
               )) 

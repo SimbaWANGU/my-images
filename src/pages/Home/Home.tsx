@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react'
 import Landing from '../../containers/Landing/Landing'
+import TryOut from '../../containers/TryItOut/TryOut'
 
 const Home = (): ReactElement => {
   const styles = {
@@ -9,6 +10,7 @@ const Home = (): ReactElement => {
   return (
     <div className={styles.div}>
       <Landing />
+      <TryOut />
     </div>
   )
 }
