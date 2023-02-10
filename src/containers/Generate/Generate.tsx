@@ -6,15 +6,7 @@ import 'swiper/css'
 import 'swiper/css/effect-cards'
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import { generateImage } from './../../api/Post'
-
-interface Image {
-  url: string
-}
-
-interface Images {
-  message: string
-  images: Image[]
-}
+import type { Image, Images } from '../../interfaces/Interface'
 
 const ImageDiv = lazy(() => import('../../components/ImageDiv'))
 
