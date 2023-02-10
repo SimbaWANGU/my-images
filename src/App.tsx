@@ -13,16 +13,18 @@ const queryClient = new QueryClient()
 
 const App = (): ReactElement => {
   const styles = {
-    div: 'h-screen'
+    div: 'h-screen force-overflow'
   }
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className={styles.div}>
-        <BrowserRouter>
-          <Navbar />
-        </BrowserRouter>
-        <ReactQueryDevtools />
+      <div id='style-7' className='scrollbar'>
+        <div className={styles.div}>
+          <BrowserRouter>
+            <Navbar />
+          </BrowserRouter>
+          <ReactQueryDevtools />
+        </div>
       </div>
     </QueryClientProvider>
   )
