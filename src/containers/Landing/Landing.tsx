@@ -20,8 +20,8 @@ const Landing = (): ReactElement => {
         <h3 className={styles.h3}>Picture Perfect</h3>
         <p className={styles.p}>Ever needed a quick image but could not find the one you&apos;re looking for? Well, Picture Perfect is for you. Just type in the image description and wait as we whip up something for you. Mould the perfect image according to your desire.</p>
         <div className={styles.div4}>
-          <button className={styles.button1}>Try it Out</button>
-          <button className={styles.button2}>Create Account</button>
+          <a href='#tryout' className={styles.button1}>Slideshow</a>
+          <a className={styles.button2}>Generate Images</a>
         </div>
       </div>
       <div className={styles.div3}>
