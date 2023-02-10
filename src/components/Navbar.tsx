@@ -44,9 +44,6 @@ const Navbar = (): ReactElement => {
               My Images
             </NavLink>
           </li>
-          <li className={styles.li}>
-            <a className={styles.button}>Sign Up</a>
-          </li>
         </ul>
       </nav>
     </div>
