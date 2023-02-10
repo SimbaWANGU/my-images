@@ -1,12 +1,10 @@
 import React, { ReactElement } from 'react'
 import { QueryClientProvider, QueryClient } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
 import { BrowserRouter } from 'react-router-dom'
 import Navbar from './components/Navbar'
-import Home from './pages/Home/Home'
-import GenerateImage from './pages/Generate/GenerateImage'
 
 //* TODO
-//! app navigation
 //! interaction
 //! animation
 //! responsive design
@@ -24,6 +22,7 @@ const App = (): ReactElement => {
         <BrowserRouter>
           <Navbar />
         </BrowserRouter>
+        <ReactQueryDevtools />
       </div>
     </QueryClientProvider>
   )
