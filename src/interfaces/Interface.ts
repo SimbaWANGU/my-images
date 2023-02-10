@@ -7,4 +7,17 @@ interface Images {
   images: Image[]
 }
 
-export type { Image, Images}
+interface ImageDiv {
+  src: string
+  classes: string
+  div: string
+}
+
+interface GridDivInterface {
+  className: string
+  photos: string[]
+  classes: string
+  div: string
+}
+
+export type { Image, Images, ImageDiv, GridDivInterface }

@@ -1,10 +1,5 @@
 import React from 'react'
-
-interface Image {
-  src: string
-  classes: string
-  div: string
-}
+import type { ImageDiv as Image } from '../interfaces/Interface'
 
 const ImageDiv: React.FC<Image> = ({ src, classes, div }) => {
   return (
