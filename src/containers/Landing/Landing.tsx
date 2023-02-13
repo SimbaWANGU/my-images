@@ -16,15 +16,38 @@ const Landing = (): ReactElement => {
   return (
     <div className={styles.div}>
       <div className={styles.div2}>
-        <h1 className={styles.h1}>Explore</h1>
-        <h3 className={styles.h3}>Picture Perfect</h3>
-        <p className={styles.p}>Ever needed a quick image but could not find the one you&apos;re looking for? Well, Picture Perfect is for you. Just type in the image description and wait as we whip up something for you. Mould the perfect image according to your desire.</p>
-        <div className={styles.div4}>
+        <h1
+          className={styles.h1}
+          data-aos="fade-right"
+          data-aos-delay="100"
+        >
+          Explore
+        </h1>
+        <h3
+          className={styles.h3}
+          data-aos="fade-left"
+          data-aos-delay="1000"
+        >
+          Picture Perfect
+        </h3>
+        <p
+          data-aos="fade-up"
+          data-aos-delay="2000"
+          className={styles.p}
+        >
+          Ever needed a quick image but could not find the one you&apos;re looking for? Well, Picture Perfect is for you. Just type in the image description and wait as we whip up something for you. Mould the perfect image according to your desire.</p>
+        <div
+          className={styles.div4}
+        >
           <a href='#tryout' className={styles.button1}>Slideshow</a>
           <a href='/generate' className={styles.button2}>Generate Images</a>
         </div>
       </div>
-      <div className={styles.div3}>
+      <div
+        className={styles.div3}
+        data-aos="fade-down"
+        data-aos-delay="3000"
+      >
         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 288 288">
           <linearGradient id="PSgrad_0" x1="70.711%" x2="0%" y1="70.711%" y2="0%">
             <stop offset="0%" stopColor="rgb(95,54,152)" stopOpacity="1" />
