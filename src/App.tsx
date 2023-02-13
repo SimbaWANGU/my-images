@@ -2,6 +2,8 @@ import React, { ReactElement } from 'react'
 import { QueryClientProvider, QueryClient } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { BrowserRouter } from 'react-router-dom'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import Navbar from './components/Navbar'
 
 //* TODO
@@ -12,6 +14,13 @@ import Navbar from './components/Navbar'
 const queryClient = new QueryClient()
 
 const App = (): ReactElement => {
+  AOS.init({
+    offset: 200,
+    delay: 300,
+    easing: 'ease-out-sine',
+    once: true
+  }
+  )
   const styles = {
     div: 'h-screen force-overflow'
   }
