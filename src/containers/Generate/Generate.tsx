@@ -6,6 +6,7 @@ import 'swiper/css'
 import 'swiper/css/effect-cards'
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import { generateImage } from './../../api/Post'
+import PacmanLoader from 'react-spinners/PacmanLoader'
 import type { Image, Images } from '../../interfaces/Interface'
 
 const ImageDiv = lazy(() => import('../../components/ImageDiv'))
@@ -17,7 +18,7 @@ const Generate = (): ReactElement => {
   const [prompt, setPrompt] = useState('')
   const [number, setNumber] = useState('')
 
-  const { status, mutateAsync: generateImages} = useMutation(async (e: FormEvent): Promise<void> => {
+  const { status, isLoading, mutateAsync: generateImages} = useMutation(async (e: FormEvent): Promise<void> => {
     e.preventDefault()
     data = await generateImage(prompt, Number(number))
     setPrompt('')
@@ -109,7 +110,18 @@ const Generate = (): ReactElement => {
             className={styles.swiper}
           >
             {status === 'loading' ?
-            <h2>Please wait while we generate the images</h2>
+            <>
+              <PacmanLoader 
+                color='#ffffff'
+                loading={isLoading}
+                cssOverride={{
+                  margin: '5rem auto'
+                }}
+                size={50}
+                aria-label="Loading Spinner"
+                data-testid="loader"
+              />
+            </>
             :
               (typeof images === 'object') ?
               images.images.map((image: Image) => (
