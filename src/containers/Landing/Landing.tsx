@@ -39,7 +39,7 @@ const Landing = (): ReactElement => {
         <div
           className={styles.div4}
         >
-          <a href='#tryout' className={styles.button1}>Slideshow</a>
+          <a href='#slideshow' className={styles.button1}>Slideshow</a>
           <a href='/generate' className={styles.button2}>Generate Images</a>
         </div>
       </div>

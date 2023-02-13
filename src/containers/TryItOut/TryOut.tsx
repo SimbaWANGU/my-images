@@ -18,7 +18,7 @@ const TryOut = () => {
   }
 
   return (
-    <div id='tryout' className={styles.container}>
+    <div id='slideshow' className={styles.container}>
       <GridDiv className={styles.div1} photos={photos1} classes={''} div={''} />
       <GridDiv className={styles.div3} photos={photos3} classes={''} div={''} />
       <GridDiv className={styles.div4} photos={photos4} classes={''} div={''} />
