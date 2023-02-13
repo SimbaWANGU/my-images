@@ -7,6 +7,8 @@ import 'swiper/css/effect-cards'
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import { generateImage } from './../../api/Post'
 import PacmanLoader from 'react-spinners/PacmanLoader'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import type { Image, Images } from '../../interfaces/Interface'
 
 const ImageDiv = lazy(() => import('../../components/ImageDiv'))
@@ -20,6 +22,17 @@ const Generate = (): ReactElement => {
 
   const { status, isLoading, mutateAsync: generateImages} = useMutation(async (e: FormEvent): Promise<void> => {
     e.preventDefault()
+    toast.info('Giving Feeback. Please wait...', {
+      position: 'top-center',
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: 'colored',
+      toastId: 'generateImage'
+    })
     data = await generateImage(prompt, Number(number))
     setPrompt('')
     setNumber('')
@@ -27,11 +40,17 @@ const Generate = (): ReactElement => {
     queryClient.setQueryData('images', data)
   }, {
     onSuccess: () => {
+      toast.update('generateImage', {
+        render: 'Got your images...'
+      })
       data = queryClient.getQueryData('images') as Images
       setImages(data)
     },
     onError: () => {
-      console.log('done')
+      toast.update('generateImage', {
+        render: 'An error occurred...',
+        type: toast.TYPE.ERROR
+      })
     }
   })
   
@@ -137,6 +156,7 @@ const Generate = (): ReactElement => {
           </Swiper>
         }
       </div>
+      <ToastContainer />
     </div>
   )
 }
