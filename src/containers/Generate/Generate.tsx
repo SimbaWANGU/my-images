@@ -4,7 +4,6 @@ import { Swiper , SwiperSlide } from 'swiper/react'
 import { Autoplay, EffectCards } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/effect-cards'
-import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import { generateImage } from './../../api/Post'
 import PacmanLoader from 'react-spinners/PacmanLoader'
 import { ToastContainer, toast } from 'react-toastify';
@@ -157,7 +156,6 @@ const Generate = (): ReactElement => {
                   <Suspense fallback={<h1>Loading</h1>}>
                     <ImageDiv src={image.url} classes={styles.classes} div={styles.Imagediv} />
                   </Suspense>
-                  <FileDownloadIcon className={styles.download} />
                 </SwiperSlide>
               )) 
               : ''
