@@ -9,7 +9,9 @@ const GridDiv:React.FC<GridDivInterface> = ({ className, photos, classes, div })
   const delay = [3000, 3500, 4000, 4500, 5000, 5500, 6000, 6500, 7000]
 
   return (
-    <div className={className}>
+    <div
+      className={className}
+    >
       <Swiper
         autoplay={{
           delay: delay[Math.floor(Math.random() * delay.length)]

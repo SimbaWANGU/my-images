@@ -20,4 +20,8 @@ interface GridDivInterface {
   div: string
 }
 
-export type { Image, Images, ImageDiv, GridDivInterface }
+interface ImagesProps {
+  handleOpenImagesModal: any
+}
+
+export type { Image, Images, ImageDiv, GridDivInterface, ImagesProps }
