@@ -19,20 +19,20 @@ const Landing = (): ReactElement => {
         <h1
           className={styles.h1}
           data-aos="fade-right"
-          data-aos-delay="100"
+          data-aos-delay="300"
         >
           Explore
         </h1>
         <h3
           className={styles.h3}
           data-aos="fade-left"
-          data-aos-delay="1000"
+          data-aos-delay="300"
         >
           Picture Perfect
         </h3>
         <p
           data-aos="fade-up"
-          data-aos-delay="2000"
+          data-aos-delay="1500"
           className={styles.p}
         >
           Ever needed a quick image but could not find the one you&apos;re looking for? Well, Picture Perfect is for you. Just type in the image description and wait as we whip up something for you. Mould the perfect image according to your desire.</p>
@@ -46,7 +46,7 @@ const Landing = (): ReactElement => {
       <div
         className={styles.div3}
         data-aos="fade-down"
-        data-aos-delay="3000"
+        data-aos-delay="1500"
       >
         <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 288 288">
           <linearGradient id="PSgrad_0" x1="70.711%" x2="0%" y1="70.711%" y2="0%">
