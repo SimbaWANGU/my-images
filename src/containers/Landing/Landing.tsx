@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react'
+import { NavLink } from 'react-router-dom'
 
 const Landing = (): ReactElement => {
   const styles = {
@@ -40,7 +41,7 @@ const Landing = (): ReactElement => {
           className={styles.div4}
         >
           <a href='#slideshow' className={styles.button1}>Slideshow</a>
-          <a href='/generate' className={styles.button2}>Generate Images</a>
+          <NavLink to='/generate' className={styles.button2}>Generate Images</NavLink>
         </div>
       </div>
       <div
