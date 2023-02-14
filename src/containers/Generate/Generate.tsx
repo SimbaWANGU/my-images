@@ -22,9 +22,9 @@ const Generate = (): ReactElement => {
 
   const { status, isLoading, mutateAsync: generateImages} = useMutation(async (e: FormEvent): Promise<void> => {
     e.preventDefault()
-    toast.info('Giving Feeback. Please wait...', {
+    toast.info('Generating Images. Please wait...', {
       position: 'top-center',
-      autoClose: 3000,
+      autoClose: false,
       hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: true,
@@ -34,17 +34,26 @@ const Generate = (): ReactElement => {
       toastId: 'generateImage'
     })
     data = await generateImage(prompt, Number(number))
+    console.log(data)
     setPrompt('')
     setNumber('')
     queryClient.invalidateQueries('images')
     queryClient.setQueryData('images', data)
   }, {
     onSuccess: () => {
-      toast.update('generateImage', {
-        render: 'Got your images...'
-      })
       data = queryClient.getQueryData('images') as Images
-      setImages(data)
+      if (data.images === null) {
+        toast.update('generateImage', {
+          render: 'API usage is at limit. Please hold on while we work on this...'
+        })
+        setImages(undefined)
+      } else {
+        toast.update('generateImage', {
+          render: 'Got your images...',
+          autoClose: 5000,
+        })
+        setImages(data)
+      }
     },
     onError: () => {
       toast.update('generateImage', {
@@ -58,7 +67,7 @@ const Generate = (): ReactElement => {
     div: 'bg-weird-blue px-14 text-white flex flex-row h-full w-full',
     formDiv: 'flex-size-1',
     form: 'glass flex flex-col',
-    h2: '',
+    h2: 'base text-center text-2xl',
     h3: 'text-center p-5 text-3xl font-semibold base',
     input: 'p-2 m-auto my-5 rounded w-8/12 text-sm text-center bg-transparent border-b outline-none focus:outline-white focus:border-none placeholder:italic alt',
     inputSubmit: 'p-2 mx-auto my-5 rounded w-5/12 bg-violet-500 hover:bg-violet-600 duration-200 ease-in',
@@ -112,7 +121,7 @@ const Generate = (): ReactElement => {
         {
           (status === 'idle' && images === undefined) ?
           <h2
-            className={styles.h2 + 'base text-center text-2xl'}
+            className={styles.h2}
             data-aos="fade-right"
             data-aos-delay="1000"
           >
