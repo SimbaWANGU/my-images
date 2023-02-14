@@ -5,11 +5,12 @@ import 'swiper/css'
 import 'swiper/css/effect-cards'
 import ImageDiv from '../../components/ImageDiv'
 import { photos1, photos2, photos3, photos4, photos5 } from '../../assets/exports'
+import { ImagesProps } from '../../interfaces/Interface'
 
-const Images = () => {
+const Images: React.FC<ImagesProps> = ({ handleOpenImagesModal }) => {
   const styles = {
     div: 'bg-weird-blue px-14 text-white h-full w-full grid gap-4 grid-cols-3 grid-rows-2',
-    swiper: 'h-48 w-48',
+    swiper: 'h-48 w-48 z-0 hover:scale-110 active:scale-90 duration-300 ease-in',
     classes: 'h-48 w-48 object-cover rounded-xl',
     Imagediv: 'h-48 w-48 border rounded-xl'
   }
@@ -19,7 +20,11 @@ const Images = () => {
   return (
     <div className={styles.div}>
       {photosArray.map((photos) => (
-      <a href='#' key={photosArray.findIndex((item) => item === photos)}>
+      <a 
+        href='#'
+        onClick={(e) => handleOpenImagesModal(e, photos)}
+        key={photosArray.findIndex((item) => item === photos)}
+      >
         <Swiper
           effect={'cards'}
           grabCursor={true}
@@ -30,7 +35,7 @@ const Images = () => {
           className={styles.swiper}
         >
           {photos.map((pics) => (
-            <SwiperSlide key={photos1.findIndex((item) => item === pics)}>
+            <SwiperSlide className='z-0' key={photos1.findIndex((item) => item === pics)}>
               <ImageDiv src={pics} classes={styles.classes} div={styles.Imagediv} />
             </SwiperSlide>
           ))}
