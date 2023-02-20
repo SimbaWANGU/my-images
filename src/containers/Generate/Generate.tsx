@@ -10,7 +10,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import type { Image, Images } from '../../interfaces/Interface'
 import { useStore } from '../../zustand/Store'
-
 const ImageDiv = lazy(() => import('../../components/ImageDiv'))
 
 const Generate = (): ReactElement => {
@@ -19,7 +18,7 @@ const Generate = (): ReactElement => {
   const [images, setImages] = useState<Images>()
   const [prompt, setPrompt] = useState('')
   const [number, setNumber] = useState('')
-  const [Images, AddImages] = useStore((state) => [state.Images, state.AddImages])
+  const [AddImages] = useStore((state) => [state.AddImages])
 
   const { status, isLoading, mutateAsync: generateImages} = useMutation(async (e: FormEvent): Promise<void> => {
     e.preventDefault()
@@ -35,8 +34,6 @@ const Generate = (): ReactElement => {
       toastId: 'generateImage'
     })
     data = await generateImage(prompt, Number(number))
-    AddImages(data)
-    console.log(Images)
     setPrompt('')
     setNumber('')
     queryClient.invalidateQueries('images')
@@ -55,6 +52,7 @@ const Generate = (): ReactElement => {
           autoClose: 5000,
         })
         setImages(data)
+        AddImages(data)
       }
     },
     onError: () => {

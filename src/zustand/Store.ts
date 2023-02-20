@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { Images } from '../interfaces/Interface'
+import type { Images } from '../interfaces/Interface'
 
 type Store = {
   Images: Images[]

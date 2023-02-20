@@ -6,10 +6,11 @@ import { Autoplay, Navigation } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/effect-cards'
 import ImageDiv from '../../components/ImageDiv'
+import { Images as ImagesType} from '../../interfaces/Interface'
 
 const MyImages = () => {
   const [isImagesModalOpen, setImagesModal] = useState(false)
-  const [displayPhotos, setDisplayPhotos] = useState<string[]>([])
+  const [displayPhotos, setDisplayPhotos] = useState<ImagesType>()
   const styles = {
     div: 'h-4/6',
     swiper: 'h-full w-full z-0 hover:scale-105',
@@ -29,7 +30,7 @@ const MyImages = () => {
     }
   }
 
-  const handleOpenImagesModal = (e: MouseEvent, photos: string[]) => {
+  const handleOpenImagesModal = (e: MouseEvent, photos: ImagesType) => {
     e.preventDefault()
     setImagesModal(true)
     setDisplayPhotos(photos)
@@ -51,11 +52,11 @@ const MyImages = () => {
           }}
           navigation={true}
           modules={[Autoplay, Navigation]}
-          className={styles.swiper + 'hover:scale-105'}
+          className={styles.swiper}
           >
-          {displayPhotos.map((photo) => (
-            <SwiperSlide className='z-0' key={displayPhotos.findIndex((item) => item === photo)}>
-              <ImageDiv src={photo} classes={styles.classes} div={styles.Imagediv} />
+          {displayPhotos?.images.map((photo) => (
+            <SwiperSlide className='z-0' key={displayPhotos.images.findIndex((item) => item === photo)}>
+              <ImageDiv src={photo.url} classes={styles.classes} div={styles.Imagediv} />
             </SwiperSlide>
           ))}
         </Swiper>
