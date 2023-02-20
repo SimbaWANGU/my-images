@@ -24,4 +24,9 @@ interface ImagesProps {
   handleOpenImagesModal: any
 }
 
-export type { Image, Images, ImageDiv, GridDivInterface, ImagesProps }
+interface Store {
+  Images: Images[]
+  AddImages: (images: Images) => void
+}
+
+export type { Image, Images, ImageDiv, GridDivInterface, ImagesProps, Store }
