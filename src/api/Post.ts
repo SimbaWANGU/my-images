@@ -1,6 +1,6 @@
 const generateImage = async (prompt: string, number: number): Promise<any> => {
   let data
-  const response = await fetch('https://pp-api-woad.vercel.app/api/images/create', {
+  const response = await fetch('https://pp-eu5l13l62-simbawangu.vercel.app/api/images/create', {
     method: 'post',
     headers: {
       'Content-type': 'application/x-www-form-urlencoded'
